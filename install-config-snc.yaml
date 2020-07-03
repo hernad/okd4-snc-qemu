@@ -1,0 +1,22 @@
+apiVersion: v1
+baseDomain: snc.test
+metadata:
+  name: okd4-snc
+networking:
+  networkType: OpenShiftSDN
+  clusterNetwork:
+  - cidr: 10.100.0.0/14 
+    hostPrefix: 23 
+  serviceNetwork: 
+  - 172.30.0.0/16
+compute:
+- name: worker
+  replicas: 0
+controlPlane:
+  name: master
+  replicas: 1
+platform:
+  none: {}
+pullSecret: '{"auths":{"fake":{"auth": "bar"}}}'
+sshKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuHMezQ7/ZJU/mVapQqQn6XhLKzWMUsL6F980/NLBUaUiPc3yZGYp54Uc0trf868XiYbGTR0c8hCwvB3d2fKUn7dy5zDRMuBGmsDc203WKVJx2tBnE5f+YFc9WdYleW3dL9hIQS4yt28T22vveFdLAbJwb7r2ukJ8uJO/fVo5eY+cHl7badkQVQCOnUHNwicYXzGvUfrVY5OVTU5oBTioecQMbArCb7OOILs+6gLclJNEP4OVY+95opJSWQA3VgOo68LaU6myRSTbtzwDwrTAtr+xmjawZHbHX4S+j6j8Ogdt/6M8dRuyDHuKjl9Rq49FJMQwoqRQy4kvcoTyzJfz7 root@hp-144
+
